@@ -59,6 +59,11 @@ const mods: Array<ModInfo> = [
     icon: 'https://media.forgecdn.net/avatars/thumbnails/154/699/256/256/636627791026604222.png',
     status: 'allowed',
   },
+  {
+    name: 'InterChatMod',
+    url: 'https://github.com/AzisabaNetwork/InterChatMod',
+    status: 'allowed',
+  },
 ]
 
 const selectedServer = ref<string | null>(null)
