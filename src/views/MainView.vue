@@ -6,6 +6,7 @@ type ModInfo = {
   url?: string;
   modrinth?: string;
   curseforge?: string;
+  version?: string;
   icon?: string;
   status: 'allowed' | 'disallowed' | 'partially_allowed' | 'unknown';
   note?: string;
@@ -149,6 +150,10 @@ const onCheckButton = () => {
       <v-card-subtitle v-if="typeof foundMod.server === 'undefined'">サーバー: <v-chip>全体</v-chip></v-card-subtitle>
       <v-card-subtitle v-else>サーバー: <v-chip v-for="server in foundMod.server" :key="server">{{ server }}</v-chip></v-card-subtitle>
       <v-card-text style="text-align: left">
+        <template v-if="typeof foundMod.version !== 'undefined'">
+          <p><u>対象バージョン: {{ foundMod.version }}</u></p>
+          <br />
+        </template>
         <p v-if="foundMod.status === 'allowed'">このModは許可されています。</p>
         <p v-else-if="foundMod.status === 'disallowed'">このModは許可されていません。(処罰対象となります)</p>
         <p v-else-if="foundMod.status === 'partially_allowed'">このModは一部機能のみ許可されているか、一部機能が禁止されています。</p>
@@ -202,6 +207,8 @@ const onCheckButton = () => {
       <v-card-subtitle v-if="typeof info.server === 'undefined'">サーバー: <v-chip>全体</v-chip></v-card-subtitle>
       <v-card-subtitle v-else>サーバー: <v-chip v-for="server in info.server" :key="server">{{ server }}</v-chip></v-card-subtitle>
       <v-card-text style="text-align: left">
+        <p v-if="typeof info.version !== 'undefined'"><u>対象バージョン: {{ info.version }}</u></p>
+        <br />
         <ul>
           <li v-if="typeof info.url !== 'undefined'">
             <a :href="info.url" target="_blank">
