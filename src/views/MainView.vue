@@ -47,6 +47,18 @@ const mods: Array<ModInfo> = [
     icon: 'https://media.forgecdn.net/avatars/thumbnails/951/92/256/256/638440158830430802.png',
     status: 'disallowed',
   },
+  {
+    name: 'U Team Core',
+    curseforge: 'u-team-core',
+    icon: 'https://media.forgecdn.net/avatars/thumbnails/108/684/256/256/636374315485450120.png',
+    status: 'allowed',
+  },
+  {
+    name: 'Music Player',
+    curseforge: 'music-player',
+    icon: 'https://media.forgecdn.net/avatars/thumbnails/154/699/256/256/636627791026604222.png',
+    status: 'allowed',
+  },
 ]
 
 const selectedServer = ref<string | null>(null)
