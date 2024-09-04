@@ -48,10 +48,10 @@ const mods: Array<ModInfo> = [
   },
 ]
 
-const selectedServers = ref<Array<string>>(null)
+const selectedServer = ref<string | null>(null)
 const servers: Array<string> = mods.flatMap(info => info.server ?? []).filter((v, i, a) => a.indexOf(v) === i)
 
-const foundMod = ref<ModInfo>(null)
+const foundMod = ref<ModInfo | undefined | null>(null)
 const url = ref('')
 
 const getStatusIcon = (info: ModInfo) => {
@@ -98,10 +98,12 @@ const onCheckButton = () => {
     }
   }
   // check server
-  if (!selectedServers.value) {
+  if (!selectedServer.value) {
     foundMod.value = matches.find(mod => typeof mod.server === 'undefined')
   } else {
-    foundMod.value = matches.find(mod => (mod.server ?? []).some(server => selectedServers.value.includes(server)))
+    foundMod.value =
+        matches.find(mod => (mod.server ?? []).some(server => selectedServer.value === server))
+            ?? matches.find(mod => typeof mod.server === 'undefined')
   }
   if (!foundMod.value) {
     foundMod.value = {
@@ -117,7 +119,7 @@ const onCheckButton = () => {
 <template>
   <v-form @submit.prevent="onCheckButton">
     <v-combobox
-        v-model="selectedServers"
+        v-model="selectedServer"
         :items="servers"
         label="サーバーで絞り込む (デフォルト: 全体)"
         prepend-icon="mdi-filter-variant"
