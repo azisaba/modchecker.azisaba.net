@@ -67,6 +67,19 @@ const onCheckButton = () => {
             ?? matches.find(mod => typeof mod.server === 'undefined')
   }
 }
+
+const getFilteredMods = () => {
+  if (!selectedServer.value) return mods
+  const names = mods.map(e => e.name).filter((e, i, a) => a.indexOf(e) === i)
+  const newMods = new Array<ModInfo>()
+  for (const name of names) {
+    const mod =
+        mods.find(e => e.name === name && (e.server ?? []).some(server => selectedServer.value === server))
+            ?? mods.find(e => e.name === name && typeof e.server === 'undefined')
+    newMods.push(mod)
+  }
+  return newMods
+}
 </script>
 
 <template>
@@ -157,7 +170,7 @@ const onCheckButton = () => {
   <br />
   <div class="d-flex flex-wrap justify-center">
     <v-card
-        v-for="(info, index) in mods"
+        v-for="(info, index) in getFilteredMods()"
         :key="index"
         class="margin-10px fixed-width-360"
     >
