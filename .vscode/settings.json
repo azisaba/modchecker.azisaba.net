@@ -1,0 +1,8 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["modinfo.json"],
+      "url": "./modinfo-schema.json"
+    }
+  ]
+}

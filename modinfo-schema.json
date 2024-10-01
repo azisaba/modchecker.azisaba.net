@@ -1,0 +1,55 @@
+{
+  "$ref": "#/definitions/ModInfo",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ModInfo": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "curseforge": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "modrinth": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "server": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "status": {
+            "enum": [
+              "allowed",
+              "disallowed",
+              "partially_allowed",
+              "unknown"
+            ],
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  }
+}

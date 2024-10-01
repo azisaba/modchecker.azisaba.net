@@ -1,70 +1,7 @@
 <script setup lang="ts">
 import {ref} from "vue";
-
-type ModInfo = {
-  name: string;
-  url?: string;
-  modrinth?: string;
-  curseforge?: string;
-  version?: string;
-  icon?: string;
-  status: 'allowed' | 'disallowed' | 'partially_allowed' | 'unknown';
-  note?: string;
-  server?: Array<string>;
-}
-
-const mods: Array<ModInfo> = [
-  {
-    name: 'Fabric API',
-    modrinth: 'fabric-api',
-    curseforge: 'fabric-api',
-    icon: 'https://cdn.modrinth.com/data/P7dR8mSH/icon.png',
-    status: 'allowed',
-  },
-  {
-    name: 'Litematica',
-    modrinth: 'litematica',
-    curseforge: 'litematica',
-    icon: 'https://cdn.modrinth.com/data/bEpr0Arc/25b5529d7a3b030ac136a6ce879d8ed2a1aa4a8d.png',
-    status: 'partially_allowed',
-    note: 'Easy Place Modeは処罰対象です。',
-  },
-  {
-    name: 'Litematica Printer',
-    modrinth: 'litematica-printer',
-    icon: 'https://cdn.modrinth.com/data/3llatzyE/c71a268626b7a5413c68b47445327f5c948a2731.jpeg',
-    status: 'disallowed',
-  },
-  {
-    name: 'Inventory Tweaks',
-    curseforge: 'inventory-tweaks',
-    icon: 'https://media.forgecdn.net/avatars/thumbnails/9/423/256/256/635428742381702656.png',
-    status: 'disallowed',
-  },
-  {
-    name: 'Inventory Tweaks ReFoxed',
-    curseforge: 'inventory-tweaks-refoxed',
-    icon: 'https://media.forgecdn.net/avatars/thumbnails/951/92/256/256/638440158830430802.png',
-    status: 'disallowed',
-  },
-  {
-    name: 'U Team Core',
-    curseforge: 'u-team-core',
-    icon: 'https://media.forgecdn.net/avatars/thumbnails/108/684/256/256/636374315485450120.png',
-    status: 'allowed',
-  },
-  {
-    name: 'Music Player',
-    curseforge: 'music-player',
-    icon: 'https://media.forgecdn.net/avatars/thumbnails/154/699/256/256/636627791026604222.png',
-    status: 'allowed',
-  },
-  {
-    name: 'InterChatMod',
-    url: 'https://github.com/AzisabaNetwork/InterChatMod',
-    status: 'allowed',
-  },
-]
+import {mods, ModInfo} from "../modinfo";
+import levenshtein from "js-levenshtein";
 
 const selectedServer = ref<string | null>(null)
 const servers: Array<string> = mods.flatMap(info => info.server ?? []).filter((v, i, a) => a.indexOf(v) === i)
@@ -115,6 +52,12 @@ const onCheckButton = () => {
       matches = mods.filter(mod => mod.curseforge === curseforgeId)
     }
   }
+  if (matches.length === 0) {
+    matches =
+        [...mods]
+            .sort((a, b) => levenshtein(a.name, url.value) - levenshtein(b.name, url.value))
+            .filter((e, i, a) => e.name === a[0].name)
+  }
   // check server
   if (!selectedServer.value) {
     foundMod.value = matches.find(mod => typeof mod.server === 'undefined')
@@ -123,18 +66,20 @@ const onCheckButton = () => {
         matches.find(mod => (mod.server ?? []).some(server => selectedServer.value === server))
             ?? matches.find(mod => typeof mod.server === 'undefined')
   }
-  if (!foundMod.value) {
-    foundMod.value = {
-      name: (modrinthMatch ?? curseforgeMatch ?? [])[1] ?? url.value,
-      modrinth: (modrinthMatch ?? [])[1],
-      curseforge: (curseforgeMatch ?? [])[1],
-      status: 'unknown',
-    }
-  }
 }
 </script>
 
 <template>
+  <v-card
+    prepend-icon="mdi-information"
+    title="「サーバーで絞り込む」を活用してください"
+    color="blue"
+  >
+    <v-card-text>
+      「サーバーで絞り込む」を使うことで、特定のサーバーでのModの許可状況を確認できます。
+      「全体」（デフォルト）のままにすると、たとえばLGW2では許可されていないのに全体だと許可されているのでLGW2でも許可されていると思い込んでいた、ということが起こり得ます。
+    </v-card-text>
+  </v-card>
   <v-form @submit.prevent="onCheckButton">
     <v-combobox
         v-model="selectedServer"
@@ -157,7 +102,7 @@ const onCheckButton = () => {
         </v-chip>
       </template>
     </v-combobox>
-    <v-text-field v-model="url" placeholder="ModのURL"></v-text-field>
+    <v-text-field v-model="url" placeholder="Modの名前またはURL"></v-text-field>
     <v-btn type="submit" block color="green">チェック</v-btn>
   </v-form>
   <div v-if="foundMod" class="d-flex flex-wrap justify-center">
@@ -179,7 +124,7 @@ const onCheckButton = () => {
           <br />
           <v-divider />
           <br />
-          <pre>{{ foundMod.note }}</pre>
+          <p v-html="foundMod.note.replace(/\r\n|\r|\n/g, '<br>')"></p>
         </template>
         <br />
         <v-divider />
@@ -212,8 +157,8 @@ const onCheckButton = () => {
   <br />
   <div class="d-flex flex-wrap justify-center">
     <v-card
-        v-for="info in mods"
-        :key="info.name"
+        v-for="(info, index) in mods"
+        :key="index"
         class="margin-10px fixed-width-360"
     >
       <v-img style="cursor: pointer; align-self: center;" :src="info.icon" height="360px" width="360px" @click="foundMod = info"></v-img>
