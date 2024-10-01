@@ -76,7 +76,9 @@ const getFilteredMods = () => {
     const mod =
         mods.find(e => e.name === name && (e.server ?? []).some(server => selectedServer.value === server))
             ?? mods.find(e => e.name === name && typeof e.server === 'undefined')
-    newMods.push(mod)
+    if (mod) {
+      newMods.push(mod)
+    }
   }
   return newMods
 }
