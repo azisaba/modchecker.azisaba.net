@@ -56,7 +56,7 @@ const onCheckButton = () => {
     matches =
         [...mods]
             .sort((a, b) => levenshtein(a.name, url.value) - levenshtein(b.name, url.value))
-            .filter((e, i, a) => e.name === a[0].name)
+            .filter((e, _i, a) => e.name === a[0].name)
   }
   // check server
   if (!selectedServer.value) {
