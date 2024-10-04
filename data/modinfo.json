@@ -59,15 +59,9 @@
     "name": "Optifine",
     "url": "https://optifine.net/downloads",
     "icon": "https://avatars.githubusercontent.com/u/69833574?s=200&v=4",
-    "status": "unknown",
-    "server": ["LGW2"]
-  },
-  {
-    "name": "Optifine",
-    "url": "https://optifine.net/downloads",
-    "icon": "https://avatars.githubusercontent.com/u/69833574?s=200&v=4",
-    "status": "unknown",
-    "server": ["Life"]
+    "status": "partially_allowed",
+    "server": ["Life"],
+    "note": "状況によってズーム機能は処罰対象となる場合があります。(有利を得ることができると判断される状況の場合)"
   },
   {
     "name": "JourneyMap",
@@ -98,5 +92,96 @@
     "icon": "https://cdn.modrinth.com/data/iQBrasyH/8a36d1dda1f0196fc1b63db829ad5b63badf0c71_96.webp",
     "status": "disallowed",
     "server": ["LGW2"]
+  },
+  {
+    "name": "Replanter",
+    "curseforge": "replanter",
+    "icon": "https://media.forgecdn.net/avatars/thumbnails/380/402/256/256/637562070687520095.png",
+    "status": "allowed"
+  },
+  {
+    "name": "Replanter",
+    "curseforge": "replanter",
+    "icon": "https://media.forgecdn.net/avatars/thumbnails/380/402/256/256/637562070687520095.png",
+    "status": "disallowed",
+    "server": ["Life", "LGW2"]
+  },
+  {
+    "name": "Jade",
+    "curseforge": "jade",
+    "modrinth": "jade",
+    "icon": "https://media.forgecdn.net/avatars/thumbnails/207/323/256/256/636965628804677340.png",
+    "status": "partially_allowed",
+    "note": "<b>「Modの設定」 → 「エンティティを表示」</b>を<b>「オフ」</b>にした場合のみ使用可能"
+  },
+  {
+    "name": "Jade",
+    "curseforge": "jade",
+    "modrinth": "jade",
+    "icon": "https://media.forgecdn.net/avatars/thumbnails/207/323/256/256/636965628804677340.png",
+    "status": "unknown",
+    "server": ["LGW2"]
+  },
+  {
+    "name": "Sodium",
+    "modrinth": "sodium",
+    "icon": "https://cdn.modrinth.com/data/AANobbMI/295862f4724dc3f78df3447ad6072b2dcd3ef0c9_96.webp",
+    "status": "allowed"
+  },
+  {
+    "name": "Lithium",
+    "modrinth": "lithium",
+    "icon": "https://cdn.modrinth.com/data/gvQqBUqZ/bcc8686c13af0143adf4285d741256af824f70b7_96.webp",
+    "status": "allowed"
+  },
+  {
+    "name": "Freecam",
+    "curseforge": "free-cam",
+    "icon": "https://media.forgecdn.net/avatars/thumbnails/467/941/256/256/637750574586450724.png",
+    "status": "disallowed"
+  },
+  {
+    "name": "Iris Shaders",
+    "modrinth": "Iris Shaders",
+    "icon": "https://cdn.modrinth.com/data/YL57xq9U/18d0e7f076d3d6ed5bedd472b853909aac5da202_96.webp",
+    "status": "allowed",
+    "note": "Mod自体は許可されていますが、シェーダーパックによっては有利を得ると判断されたものについては処罰対象となります。"
+  },
+  {
+    "name": "Figura",
+    "curseforge": "figura",
+    "modrinth": "figura",
+    "icon": "https://cdn.modrinth.com/data/s9gIPDom/9e3994b58a6a50d9143c0aa87df1c3b54e4b7919.png",
+    "status": "allowed"
+  },
+  {
+    "name": "Distant Horizons",
+    "curseforge": "distant-horizons",
+    "modrinth": "distanthorizons",
+    "icon": "https://media.forgecdn.net/avatars/thumbnails/427/238/256/256/637658621275806301.png",
+    "status": "allowed"
+  },
+  {
+    "name": "Distant Horizons",
+    "curseforge": "distant-horizons",
+    "modrinth": "distanthorizons",
+    "icon": "https://media.forgecdn.net/avatars/thumbnails/427/238/256/256/637658621275806301.png",
+    "status": "partially_allowed",
+    "server": ["Life"],
+    "note": "生活系サーバー(life, liferesource, lifetown)でのみ許可。それ以外は禁止"
+  },
+  {
+    "name": "Bobby",
+    "modrinth": "bobby",
+    "icon": "https://cdn.modrinth.com/data/M08ruV16/icon.png",
+    "status": "allowed"
+  },
+  {
+    "name": "Bobby",
+    "modrinth": "bobby",
+    "icon": "https://cdn.modrinth.com/data/M08ruV16/icon.png",
+    "status": "partially_allowed",
+    "server": ["Life"],
+    "note": "生活系サーバー(life, liferesource, lifetown)でのみ許可。それ以外は禁止"
   }
 ]
