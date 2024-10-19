@@ -183,5 +183,77 @@
     "status": "partially_allowed",
     "server": ["Life"],
     "note": "生活系サーバー(life, liferesource, lifetown)でのみ許可。それ以外は禁止"
+  },
+  {
+    "name": "Replanter Plus",
+    "modrinth": "replanter-plus",
+    "icon": "https://cdn.modrinth.com/data/is7374ZC/2128005704e7e99953419cbfd38b7c4b23934f53_96.webp",
+    "status": "partially_allowed",
+    "note": "<b>Autoswitch</b>をオフにする必要があります。"
+  },
+  {
+    "name": "Replanter Plus",
+    "modrinth": "replanter-plus",
+    "icon": "https://cdn.modrinth.com/data/is7374ZC/2128005704e7e99953419cbfd38b7c4b23934f53_96.webp",
+    "status": "disallowed",
+    "server": ["Life"]
+  },
+  {
+    "name": "Chat Heads",
+    "curseforge": "chat-heads",
+    "modrinth": "chat-heads",
+    "icon": "https://cdn.modrinth.com/data/Wb5oqrBJ/icon.png",
+    "status": "allowed"
+  },
+  {
+    "name": "Xaero's Minimap",
+    "curseforge": "xaeros-minimap",
+    "modrinth": "Xaero's Minimap",
+    "icon": "https://cdn.modrinth.com/data/1bokaNcj/354080f65407e49f486fcf9c4580e82c45ae63b8_96.webp",
+    "status": "allowed"
+  },
+  {
+    "name": "xaeros-minimap",
+    "curseforge": "xaeros-minimap",
+    "modrinth": "xaeros-minimap",
+    "icon": "https://cdn.modrinth.com/data/1bokaNcj/354080f65407e49f486fcf9c4580e82c45ae63b8_96.webp",
+    "status": "disallowed",
+    "server": ["LGW2"]
+  },
+  {
+    "name": "Xaero's World Map",
+    "curseforge": "xaeros-world-map",
+    "modrinth": "xaeros-world-map",
+    "icon": "https://cdn.modrinth.com/data/NcUtCpym/354080f65407e49f486fcf9c4580e82c45ae63b8_96.webp",
+    "status": "allowed"
+  },
+  {
+    "name": "Xaero's World Map",
+    "curseforge": "xaeros-world-map",
+    "modrinth": "xaeros-world-map",
+    "icon": "https://cdn.modrinth.com/data/NcUtCpym/354080f65407e49f486fcf9c4580e82c45ae63b8_96.webp",
+    "status": "disallowed",
+    "server": ["LGW2"]
+  },
+  {
+    "name": "Item Physic Full",
+    "curseforge": "itemphysic",
+    "modrinth": "itemphysic",
+    "icon": "https://media.forgecdn.net/avatars/thumbnails/87/478/256/256/636216263684584171.png",
+    "status": "allowed"
+  },
+  {
+    "name": "Item Physic Lite",
+    "curseforge": "itemphysic-lite",
+    "modrinth": "itemphysic-lite",
+    "icon": "https://media.forgecdn.net/avatars/thumbnails/103/313/256/256/636337267977446572.png",
+    "status": "allowed"
+  },
+  {
+    "name": "Creative Core",
+    "curseforge": "creativecore",
+    "modrinth": "creativecore",
+    "icon": "https://cdn.modrinth.com/data/OsZiaDHq/4953ecd3c0c8b185b2a56d64cdb104b03f3e5038_96.webp",
+    "status": "allowed"
   }
 ]
