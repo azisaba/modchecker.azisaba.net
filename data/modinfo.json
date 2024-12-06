@@ -21,6 +21,12 @@
     "status": "disallowed"
   },
   {
+    "name": "Forge 1.18.2 ~ Forge 1.19.3",
+    "icon": "https://files.minecraftforge.net/favicon.ico",
+    "status": "disallowed"
+    "note": "リーチ(腕の長さ)が伸びるバグがあるため https://github.com/MinecraftForge/MinecraftForge/issues/9309"
+  },
+  {
     "name": "Inventory Tweaks",
     "curseforge": "inventory-tweaks",
     "icon": "https://media.forgecdn.net/avatars/thumbnails/9/423/256/256/635428742381702656.png",
