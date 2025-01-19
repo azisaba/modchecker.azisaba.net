@@ -255,5 +255,12 @@
     "modrinth": "creativecore",
     "icon": "https://cdn.modrinth.com/data/OsZiaDHq/4953ecd3c0c8b185b2a56d64cdb104b03f3e5038_96.webp",
     "status": "allowed"
+  },
+  {
+    "name": "Legacy4J",
+    "curseforge": "legacy-minecraft",
+    "modrinth": "legacy4j",
+    "icon": "https://cdn.modrinth.com/data/gHvKJofA/383096544ed43987ca7f8f4b966eba3e0bef3395_96.webp",
+    "status": "disallowed"
   }
 ]
